@@ -4,6 +4,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class GameManager : MonoBehaviour
+{
+    public Text scoreText;
+    private int score = 0;
+    public int winScore = 100;
+}
 
 public class PlayerScript : MonoBehaviour
 {
@@ -108,18 +116,31 @@ public class PlayerScript : MonoBehaviour
             UpdateScore();
         }
     }
-
+    
     //This function updates the game's score text to show how many points you have
     //Even if your 'score' variable goes up, if you don't update the text the player doesn't know
     public void UpdateScore()
     {
         ScoreText.text = "Score: " + Score;
+        
     }
 
+    void LoadWinScene()  
+        {
+            SceneManager.LoadScene("Win");
+        }
+    
+
+    
+    
     //If this function is called, the player character dies. The game goes to a 'Game Over' screen.
     public void Die()
     {
         SceneManager.LoadScene("Game Over");
     }
-    
+
+    public void Victory()
+    {
+            SceneManager.LoadScene("Win");
+    }
 }

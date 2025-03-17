@@ -69,9 +69,3 @@ public class CoinScript : MonoBehaviour
     }
 
 }
-
-//  Vector3 spawnPos1 = new Vector3(Random.Range(-10f,15f), Random.Range(-5f,5f), transform.position.z);
-//Vector3 spawnPos2 = new Vector3(Random.Range(-10f,15f), Random.Range(-5f,5f), transform.position.z);
-    
-//Instantiate(CoinPrefab, spawnPos1, Quaternion.identity);
-//Instantiate(CoinPrefab, spawnPos2, Quaternion.identity);
