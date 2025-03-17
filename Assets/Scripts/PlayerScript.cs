@@ -21,13 +21,22 @@ public class PlayerScript : MonoBehaviour
     
     //This is how many points we currently have
     public int Score = 0;
+
+    public Sprite upSprite;
+    public Sprite downSprite;
+    public Sprite leftSprite;
+    public Sprite rightSprite;
     
+    private SpriteRenderer spriteRenderer;
+    private Vector2 lastDirection;
      
     //Start automatically gets triggered once when the objects turns on/the game starts
     void Start()
     {
         //During setup we call UpdateScore to make sure our score text looks correct
         UpdateScore();
+        
+        spriteRenderer = GetComponent<SpriteRenderer>();
         
     }
 
@@ -45,21 +54,29 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             vel.x = Speed;
+            spriteRenderer.sprite = rightSprite;
+            lastDirection = Vector2.right;
         }
         //If I hold the left arrow, the player should move left. . .
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             vel.x = -Speed;
+            spriteRenderer.sprite = leftSprite;
+            lastDirection = Vector2.left;
         }
         //If I hold the up arrow, the player should move up. . .
         if (Input.GetKey(KeyCode.UpArrow))
         {
             vel.y = Speed;
+            spriteRenderer.sprite = upSprite;
+            lastDirection = Vector2.up;
         }
         //If I hold the down arrow, the player should move down. . .
         if (Input.GetKey(KeyCode.DownArrow))
         {
             vel.y = -Speed;
+            spriteRenderer.sprite = downSprite;
+            lastDirection = Vector2.down;
         }
         
         //Finally, I take that variable and I feed it to the component in charge of movement

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HazardScript : MonoBehaviour
 {
-    public float Speed = 1;
+    public float Speed = -3;
     
     public Rigidbody2D hB;
 
